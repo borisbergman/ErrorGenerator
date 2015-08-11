@@ -1,19 +1,4 @@
-import serial
-import threading
-import time
-from threading import Timer
-import math
-import struct
-import binascii
-import random
-import sys
-import csv
-
-
-#ser.write([0x01,0x81 ,0x0A,0x1F,0x01, 0x05,0x21,0x00, 0x10,0xE2])
-def to_hex(ints):
-    return ''.join(["0x" + "%02X" % x + ", " for x in ints])
-
+__author__ = 'asuspc'
 
 
 qq = [
@@ -91,17 +76,3 @@ qq = [
   [0x01,0x81,0x0A,0x1F,0x01,0x09,0x05,0x00,0x20,0xDA], #line 5a impedance error set 52
   [0x01,0x81,0x0A,0x1F,0x01,0x1B,0x05,0x00,0x20,0xEC], #reset
 ]
-
-while(1):
-    ser.read()
-    ser.flush()
-    lala = input("Enter command to send [0-{0}]".format(str(len(qq)-1)))
-    try:
-        x = int(lala)
-    except:
-        continue
-    if x >= len(qq):
-        continue
-    print(to_hex(qq[x]))
-    ser.write(qq[x])
-
