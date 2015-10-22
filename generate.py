@@ -6,8 +6,12 @@ keep_alive = [0x01,  0x81, 0x05,  0x1E,  0xA5]
 
 
 def send_keep_alive(c):
-    c.sendall(bytes(keep_alive))
-    print("keep alive send")
+    try:
+        c.sendall(bytes(keep_alive))
+        print("keep alive send")
+    except:
+        rt.stop()
+
 
 while 1:
 
@@ -34,6 +38,7 @@ while 1:
                 print(erros[num])
                 conn.sendall(bytes(erros[num]))
             except:
+                rt.stop()
                 break
 
 
