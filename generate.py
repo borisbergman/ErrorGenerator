@@ -8,7 +8,7 @@ keep_alive = [0x01,  0x81, 0x05,  0x1E,  0xA5]
 def send_keep_alive(c):
     try:
         c.sendall(bytes(keep_alive))
-        print("keep alive send")
+        print("keep alive send"),
     except:
         rt.stop()
 
