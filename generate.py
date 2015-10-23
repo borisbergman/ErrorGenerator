@@ -37,7 +37,7 @@ while 1:
                 num = int(input())
                 print(erros[num])
                 conn.sendall(bytes(erros[num]))
-            except:
+            except Exception:
                 rt.stop()
                 break
 
